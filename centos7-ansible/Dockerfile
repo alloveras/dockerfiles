@@ -24,14 +24,14 @@ RUN echo "${SSH_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Populate user's home directory with SSH authorized public keys.
 RUN mkdir -p "/home/${SSH_USER}/.ssh"
-ADD id_rsa "/home/${SSH_USER}/.ssh/id_rsa"
-ADD id_rsa.pub "/home/${SSH_USER}/.ssh/id_rsa.pub"
-ADD id_rsa.pub "/home/${SSH_USER}/.ssh/authorized_keys"
+ADD secrets/id_rsa "/home/${SSH_USER}/.ssh/id_rsa"
+ADD secrets/id_rsa.pub "/home/${SSH_USER}/.ssh/id_rsa.pub"
+ADD secrets/id_rsa.pub "/home/${SSH_USER}/.ssh/authorized_keys"
 RUN chown -R "${SSH_USER}":"${SSH_USER}" "/home/${SSH_USER}/.ssh"
 RUN chmod 700 "/home/${SSH_USER}/.ssh"
 
 # Swap default SSH config file with a security tweaked one.
-COPY sshd_config /etc/ssh/sshd_config
+COPY files/sshd_config /etc/ssh/sshd_config
 
 EXPOSE 22
 CMD    ["/usr/sbin/sshd", "-D"]

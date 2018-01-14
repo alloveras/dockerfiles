@@ -2,5 +2,5 @@
 .DS_Store
 
 # Pubic & pirvate RSA keypair.
-id_rsa.pub
-id_rsa
+secrets/*
+!secrets/.gitkeep

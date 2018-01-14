@@ -8,10 +8,10 @@ Dockerfile that builds up a CentOS7 container image with the following software 
 
  ## Build your docker image
 
-1. Create the `authorized_keys` file under the same directory where `Dockerfile` is located:
+1. Create the `authorized_keys` file inside `secrets` folder:
 
 ```
-touch authorized_hosts
+touch secrets/authorized_hosts
 ```
 
 1. [Optional] Create a new SSH RSA key-pair if you don't have one:
@@ -22,9 +22,9 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 > **Note**: The key-pair generation tool will prompt you some questions during the process. Unless you know what you are doing, press ENTER to use the default values.
 
-1. Copy your SSH RSA public key to the same directory where `Dockerfile` is located:
+1. Copy your SSH RSA public key to the `secrets` folder:
 ```
-cp ~/.ssh/id_rsa.pub ./authorized_hosts
+cp ~/.ssh/id_rsa.pub ./secrets/authorized_keys
 ```
 
 1. Build up a docker image customized for your user:

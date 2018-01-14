@@ -17,14 +17,14 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 > **Note**: The key-pair generation tool will prompt you some questions during the process. Unless you know what you are doing, press ENTER to use the default values.
 
-1. Copy your SSH RSA public key to the same directory where `Dockerfile` is located:
+1. Copy your SSH RSA public key to `secrets` folder:
 ```
-cp ~/.ssh/id_rsa.pub ./id_rsa.pub
+cp ~/.ssh/id_rsa.pub secrets/id_rsa.pub
 ```
 
-1. Copy your SSH RSA private key to the same directory where `Dockerfile` is located:
+1. Copy your SSH RSA private key to `secrets` folder:
 ```
-cp ~/.ssh/id_rsa ./id_rsa
+cp ~/.ssh/id_rsa secrets/id_rsa
 ```
 
 1. Build up a docker image customized for your user:
