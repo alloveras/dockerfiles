@@ -1,0 +1,6 @@
+# OSX journaling files.
+.DS_Store
+
+# Pubic & pirvate RSA keypair.
+id_rsa.pub
+id_rsa
